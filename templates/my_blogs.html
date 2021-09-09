@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content%}
+
+<div class="container">
+  <h3 class="fw-bolder my-4">Here are the Blogs contributed by you</h3>
+  <table class="my-2 table table-hover">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Title of the Blog</th>
+        <th scope="col">Blog Id</th>
+        <th scope="col">Published On</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Preview</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for messages in message %}
+      <tr>
+        <td>{{messages.title}}</td>
+        <td>{{messages.blog_id}}</td>
+        <td>{{messages.created_at}}</td>
+        <td><a href="{% url 'update_blog' messages.blog_id %}" target="_blank" class="btn btn-sm btn-success">Update</a></td>
+        <td><a href="{% url 'blog_delete' messages.blog_id %}" target="_blank" class="btn btn-sm btn-danger">Delete</a></td>
+        <td><a href="{% url 'see_blogs' messages.blog_id %}" target="_blank" class="btn btn-sm btn-success">View</a></td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

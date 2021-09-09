@@ -1,0 +1,78 @@
+{% extends 'base.html' %} 
+{% block content%} 
+  {% load static %}
+  <main class="form-signin">
+    <form action="register" method="POST">
+      {% csrf_token %}
+      <center>
+      <img
+        class="mb-4"
+        src="{%static 'images/blog.png' %}"
+        alt=""
+        width="72"
+        height="57"
+      />
+      </center>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control fw-bolder"
+          id="floatingInput"
+          name="username"
+          placeholder="mymymy"
+        />
+        <label class="fw-bolder" for="floatingInput">User ID</label>
+      </div>
+      <div class="my-2 form-floating">
+        <input
+          type="text"
+          class="form-control fw-bolder"
+          id="floatingInputF"
+          name="firstname"
+          placeholder="mymymy"
+        />
+        <label class="fw-bolder" for="floatingInputF">First Name</label>
+      </div>
+      <div class=" my-2 form-floating">
+        <input
+          type="text"
+          class="form-control fw-bolder"
+          id="floatingInputL"
+          name="lastname"
+          placeholder="mymymy"
+        />
+        <label class="fw-bolder" for="floatingInputL">Last Name</label>
+      </div>
+      <div class="my-2 form-floating">
+        <input
+          type="email"
+          class="form-control fw-bolder"
+          id="floatingEmail"
+          name="emailid"
+          placeholder="email@gmail.com"
+        />
+        <label class="fw-bolder" for="floatingEmail">Email Id</label>
+      </div>
+      <div class="my-2 form-floating">
+        <input
+          type="password"
+          class="form-control fw-bolder"
+          id="floatingPassword"
+          name="password"
+          placeholder="Password"
+        />
+        <label class="fw-bolder" for="floatingPassword">Password</label>
+      </div>
+     
+      {% for message in messages %}
+      <script>
+        alert("{{ message }}");
+      </script>
+      {% endfor %}
+
+      <button class="w-100 btn btn-lg btn-success fw-bolder" type="submit">
+        Join
+      </button>
+    </form>
+  </main>
+{% endblock %}

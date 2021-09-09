@@ -1,0 +1,49 @@
+{% extends 'base.html' %} 
+{% block content%} 
+  {% load static %}
+  <main class="form-signin">
+    <form action="login" method="POST">
+      {% csrf_token %}
+      <img
+        class="mb-4"
+        src="{%static 'images/blog.png' %}"
+        alt=""
+        width="72"
+        height="57"
+      />
+      <h1 class="fw-bolder h3 mb-3">Please sign in</h1>
+
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control fw-bolder"
+          id="floatingInput"
+          name="username"
+          placeholder="mymymy"
+        />
+        <label class="fw-bolder" for="floatingInput">User ID</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control fw-bolder"
+          id="floatingPassword"
+          name="password"
+          placeholder="Password"
+        />
+        <label class="fw-bolder" for="floatingPassword">Password</label>
+      </div>
+
+      {% for message in messages %}
+      <script>
+        alert("{{ message }}");
+      </script>
+      {% endfor %}
+
+      <button class="w-100 btn btn-lg btn-success fw-bolder" type="submit">
+        Sign in
+      </button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2021–2022</p>
+    </form>
+  </main>
+{% endblock %}

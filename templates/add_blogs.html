@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container mt-5">
+  <form method="post" class="mt-5 pt-5 mb-5 pb-5" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-12">
+        <label class="fw-bolder fs-4">Enter Blog title</label>
+        <input
+          type="text"
+          class="my-2 form-control"
+          placeholder="Enter title"
+          name="title"
+        />
+      </div>
+
+      <div class="fw-bolder fs-4 col-md-12">{{form.media}} {{form.as_p}}</div>
+
+      <div class="my-2 col-md-12">
+        <input type="file" name="image" class="fw-bolder form-control" required/>
+      </div>
+    </div>
+
+    <button type="submit" class="btn my-2 btn-primary mt-4">Create Blog</button>
+  </form>
+</div>
+
+{% endblock %}

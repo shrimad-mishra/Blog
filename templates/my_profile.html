@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+
+<section>
+  <div class="my-4 container">
+    {% for u in user %}
+        <div class="my-3 row text-center">
+            <div class="col-xl-10 mx-auto">
+            <pre class="fw-bolder fs-4"> User Id      {{u.id}} </pre>
+            </div>
+        </div>
+        <div class="my-3 row text-center">
+            <div class="col-xl-10 mx-auto">
+            <pre class="fw-bolder fs-4"> User-Name    {{u.username}} </pre>
+            </div>
+        </div>
+        <div class="my-3 row text-center">
+            <div class="col-xl-10 mx-auto">
+            <pre class="fw-bolder fs-4"> First-Name   {{u.first_name}} </pre>
+            </div>
+        </div>
+        <div class="my-3 row text-center">
+            <div class="col-xl-10 mx-auto">
+            <pre class="fw-bolder fs-4"> Last-Name    {{u.last_name}} </pre>
+            </div>
+        </div>
+        <div class="my-3 row text-center">
+            <div class="col-xl-10 mx-auto">
+            <pre class="fw-bolder fs-4">        Email     {{u.email}} </pre>
+            </div>
+        </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}
